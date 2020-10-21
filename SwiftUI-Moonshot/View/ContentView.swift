@@ -12,7 +12,6 @@ struct ContentView: View {
     let missions: [Mission] = Missions.missions
     let astronauts: [Astronaut] = Astronauts.astronauts
 
-    // challenge 3
     @State var showDate = true
 
     var body: some View {
@@ -21,13 +20,13 @@ struct ContentView: View {
                 NavigationLink(destination: MissionView(mission: mission)) {
                     Image(mission.image)
                         .resizable()
-                        .scaledToFit() // shortcut for .aspectRatio(contentMode: .fit)
+                        .scaledToFit()
                         .frame(width: 44, height: 44)
 
                     VStack(alignment: .leading) {
                         Text(mission.displayName)
                             .font(.headline)
-                        // challenge 3
+                 
                         if self.showDate {
                             Text(mission.formattedLaunchDate)
                                 .font(.subheadline)
@@ -40,7 +39,6 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle("Moonshot")
-            // challenge 3
             .navigationBarItems(trailing:
                 Button(action: {
                     self.showDate.toggle()

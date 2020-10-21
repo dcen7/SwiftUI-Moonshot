@@ -10,10 +10,9 @@ import SwiftUI
 
 struct AstronautView: View {
     let astronaut: Astronaut
-    // challenge 2
+  
     let missions: [Mission]
 
-    // challenge 2
     init(astronaut: Astronaut) {
         self.astronaut = astronaut
 
@@ -40,15 +39,8 @@ struct AstronautView: View {
 
                     Text(self.astronaut.description)
                         .padding()
-                        // fix what seems like a SwiftUI bug where on certain devices
-                        // (like the iPhone 11 Pro Max) and certain astronauts (like
-                        // Edward H. White II from Apollo 1) the text would be truncated,
-                        // and the image pushed down views default layout priority is 0.
-                        // giving it 1 gives it a higher priority than other views to grow
-                        // or shrink. it'll then take up all available space
                         .layoutPriority(1)
 
-                    // challenge 2
                     ForEach(self.missions) { mission in
                         HStack {
                             Image(mission.image)
